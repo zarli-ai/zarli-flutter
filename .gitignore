@@ -1,1 +1,21 @@
+# Dart/Flutter
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+*.swp
+*.ipr
+*.iws
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Custom
 SUMMARY.md
