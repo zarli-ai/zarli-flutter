@@ -15,7 +15,7 @@ A Flutter plugin for the Zarli iOS SDK.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'ZarliSDKSwift'
+  s.dependency 'ZarliSDKSwift', '~> 1.3'
   s.platform = :ios, '13.0'
   s.static_framework = true
 
