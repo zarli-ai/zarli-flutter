@@ -10,7 +10,6 @@ The official Flutter plugin for the Zarli iOS SDK.
 ## Platform Support
 
 - ✅ **iOS** 13.0+
-- ❌ **Android** (coming soon)
 
 ## Installation
 
