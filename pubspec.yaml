@@ -1,7 +1,8 @@
 name: zarli_flutter
-description: A Flutter plugin for the Zarli iOS SDK.
+description: The official Flutter plugin for the Zarli iOS SDK. Monetize your Flutter apps with premium playable ads.
 version: 0.0.1
 homepage: https://zarli.ai
+repository: https://github.com/zarli-ai/zarli-flutter
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
