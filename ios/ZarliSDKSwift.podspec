@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'ZarliSDKSwift'
-  s.version          = '1.3.24-dev'
+  s.version          = '1.3.23'
   s.summary          = 'The official iOS SDK for the Zarli Ad Network.'
   s.description      = <<-DESC
     ZarliSDKSwift enables mobile publishers to seamlessly integrate high-performance, 
@@ -11,14 +11,12 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT' }
   s.author           = { 'Zarli AI' => 'founders@zarli.ai' }
   
-  # Use local source files for development
-  s.source           = { :git => '', :tag => s.version.to_s }
-  s.source_files     = '/Users/kawaitsoi/Projects/zarli/zarli-ios-sdk-source/Sources/ZarliSDKSwift/**/*.swift'
+  s.source           = { :git => 'https://github.com/zarli-ai/zarli-ios-sdk.git', :tag => s.version.to_s }
+  s.source_files     = 'Sources/ZarliSDKSwift/**/*.swift'
   s.resource_bundles = {
-    'ZarliSDKSwift' => ['/Users/kawaitsoi/Projects/zarli/zarli-ios-sdk-source/Sources/ZarliSDKSwift/PrivacyInfo.xcprivacy']
+    'ZarliSDKSwift' => ['Sources/ZarliSDKSwift/PrivacyInfo.xcprivacy']
   }
 
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
 end
-
