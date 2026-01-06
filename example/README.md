@@ -5,7 +5,7 @@ Example application demonstrating the `zarli_flutter` plugin.
 ## Setup
 
 1. **Get your Zarli API Key**:
-   - Sign up at [zarli.ai](https://zarli.ai)
+   - Sign up dashboard access at [dashboard.zarli.ai/signup](https://dashboard.zarli.ai/signup)
    - Navigate to your dashboard to get your API key
 
 2. **Get your Ad Unit ID**:
