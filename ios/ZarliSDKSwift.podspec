@@ -9,13 +9,14 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/zarli-ai/zarli-ios-sdk'
   s.license          = { :type => 'MIT' }
-  s.author           = { 'Zarli AI' => 'support@zarli.ai' }
+  s.author           = { 'Zarli AI' => 'founders@zarli.ai' }
   
-  # Point directly to the 1.3.23 release binary
-  s.source           = { :http => 'https://github.com/zarli-ai/zarli-ios-sdk/releases/download/1.3.23/ZarliSDKSwift.xcframework.zip' }
+  s.source           = { :git => 'https://github.com/zarli-ai/zarli-ios-sdk.git', :tag => s.version.to_s }
+  s.source_files     = 'Sources/ZarliSDKSwift/**/*.swift'
+  s.resource_bundles = {
+    'ZarliSDKSwift' => ['Sources/ZarliSDKSwift/PrivacyInfo.xcprivacy']
+  }
 
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.0'
-
-  s.vendored_frameworks = 'ZarliSDKSwift.xcframework'
 end
