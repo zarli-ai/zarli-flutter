@@ -23,28 +23,36 @@ abstract class ZarliFlutterPlatform extends PlatformInterface {
   }
 
   /// Initializes the SDK.
-  Future<void> initialize({required String apiKey}) {
+  ///
+  /// [apiKey] is optional. If not provided, the plugin searches for `ZarliAPIKey`
+  /// in the Info.plist (iOS) or AndroidManifest.xml (Android).
+  Future<void> initialize({String? apiKey}) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 
   /// Loads an interstitial ad.
-  Future<void> loadInterstitialAd(String adUnitId) {
+  Future<void> loadInterstitialAd(String adUnitId, String adObjectId) {
     throw UnimplementedError('loadInterstitialAd() has not been implemented.');
   }
 
   /// Shows a loaded interstitial ad.
-  Future<void> showInterstitialAd(String adUnitId) {
+  Future<void> showInterstitialAd(String adObjectId) {
     throw UnimplementedError('showInterstitialAd() has not been implemented.');
   }
 
   /// Loads a rewarded ad.
-  Future<void> loadRewardedAd(String adUnitId) {
+  Future<void> loadRewardedAd(String adUnitId, String adObjectId) {
     throw UnimplementedError('loadRewardedAd() has not been implemented.');
   }
 
   /// Shows a loaded rewarded ad.
-  Future<void> showRewardedAd(String adUnitId) {
+  Future<void> showRewardedAd(String adObjectId) {
     throw UnimplementedError('showRewardedAd() has not been implemented.');
+  }
+
+  /// Disposes an ad object.
+  Future<void> disposeAd(String adObjectId) {
+    throw UnimplementedError('disposeAd() has not been implemented.');
   }
 
   /// Stream of ad events (loaded, failed, showed, dismissed, reward earned).
@@ -56,11 +64,17 @@ abstract class ZarliFlutterPlatform extends PlatformInterface {
 /// Represents an event from the Native SDK.
 class ZarliAdEvent {
   final ZarliAdEventType type;
+
+  /// The unique ID of the ad instance this event belongs to.
+  final String adObjectId;
+
+  /// The Ad Unit ID associated with the ad.
   final String adUnitId;
   final dynamic data; // Error message or Reward amount
 
   ZarliAdEvent({
     required this.type,
+    required this.adObjectId,
     required this.adUnitId,
     this.data,
   });
