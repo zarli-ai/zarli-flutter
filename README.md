@@ -7,6 +7,10 @@ The official Flutter plugin for the Zarli iOS SDK.
 * **Interstitial Ads**: Full-screen ads that cover the interface of their host app.
 * **Rewarded Ads**: Ads that reward users for watching short videos and interacting with playable ads.
 
+## Platform Support
+
+- ✅ **iOS** 13.0+
+
 ## Installation
 
 Add `zarli_flutter` to your `pubspec.yaml`:
