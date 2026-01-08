@@ -55,6 +55,8 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
             return
         }
         
+        
+        // TEMPORARY: Use local server for testing
         let config = ZarliConfiguration(apiKey: finalApiKey)
         ZarliSDK.shared.initialize(configuration: config) { success in
             // We can return success even if SDK was already initialized
