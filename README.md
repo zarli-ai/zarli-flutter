@@ -15,106 +15,36 @@ The official Flutter plugin for the Zarli iOS SDK. Monetize your Flutter apps wi
 
 ## Installation
 
-The Zarli Flutter plugin supports two installation methods for iOS dependencies. Choose based on your Flutter version:
+### 1. Add dependency
 
-### Quick Start: Check Your Flutter Version
-
-```bash
-flutter --version
-```
-
-- **Flutter 3.24+**: Use **Swift Package Manager** (recommended)
-- **Flutter < 3.24**: Use **CocoaPods** (automatic)
-
----
-
-### Method 1: Swift Package Manager (Flutter 3.24+) ⭐ Recommended
-
-SPM is Apple's native dependency manager and the future of iOS development. CocoaPods will become read-only in December 2026.
-
-#### Step 1: Enable SPM in Flutter
-
-```bash
-flutter config --enable-swift-package-manager
-```
-
-#### Step 2: Add Flutter Plugin
-
-Add to your `pubspec.yaml`:
+Add `zarli_flutter` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
   zarli_flutter: ^0.0.1
 ```
 
-Run:
-```bash
-flutter pub get
-```
+### 2. Configure iOS
 
-#### Step 3: Add iOS Native Dependencies
+#### Option A: Swift Package Manager (Recommended for Flutter 3.24+)
 
-1. Open your iOS project in Xcode:
-   ```bash
-   open ios/Runner.xcworkspace
-   ```
+This plugin supports Swift Package Manager (SPM), which simplifies dependency management and removes the need for CocoaPods.
 
-2. In Xcode, navigate to **File > Add Package Dependencies...**
+1.  **Enable SPM** in your Flutter project:
+    ```bash
+    flutter config --enable-swift-package-manager
+    ```
+2.  **That's it!** Flutter will automatically resolve the `zarli-ios-sdk` dependency using the plugin's `Package.swift`.
 
-3. Paste the repository URL:
-   ```
-   https://github.com/zarli-ai/zarli-ios-sdk.git
-   ```
+#### Option B: CocoaPods (Legacy)
 
-4. Select version rule: **"Up to Next Major Version"** with `1.3.33`
+If you are not using SPM, CocoaPods will automatically handle the installation via the `.podspec`.
 
-5. Select the **`ZarliAdapterAdMob`** library (this includes the Core SDK)
-
-6. Click **Add Package**
-
-#### Step 4: Run Your App
-
-```bash
-flutter run
-```
-
-**Benefits of SPM:**
-- ✅ Faster builds
-- ✅ Native Xcode integration
-- ✅ Future-proof (CocoaPods sunset Dec 2026)
-- ✅ No Ruby/CocoaPods installation needed
-
----
-
-### Method 2: CocoaPods (Flutter < 3.24 or Existing Projects)
-
-For Flutter versions before 3.24 or projects already using CocoaPods.
-
-#### Step 1: Add Flutter Plugin
-
-Add to your `pubspec.yaml`:
-
-```yaml
-dependencies:
-  zarli_flutter: ^0.0.1
-```
-
-#### Step 2: Install Dependencies
-
-```bash
-flutter pub get
-cd ios && pod install && cd ..
-```
-
-The plugin's podspec automatically declares the `ZarliAdapterAdMob` dependency, so no manual Podfile changes are needed.
-
-#### Step 3: Run Your App
-
-```bash
-flutter run
-```
-
----
+1.  Make sure your `ios/Podfile` targets iOS 13.0 or higher.
+    ```ruby
+    platform :ios, '13.0'
+    ```
+2.  Run `pod install` in your `ios` directory.
 
 ## Usage
 
