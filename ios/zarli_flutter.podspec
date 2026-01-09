@@ -15,7 +15,17 @@ A Flutter plugin for the Zarli iOS SDK.
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
-  s.dependency 'ZarliSDKSwift', '~> 1.3'
+  
+  # Zarli iOS SDK Dependency
+  # 
+  # RECOMMENDED for Flutter 3.24+: Use Swift Package Manager instead
+  # - Run: flutter config --enable-swift-package-manager
+  # - Add https://github.com/zarli-ai/zarli-ios-sdk.git via Xcode
+  # - Select 'ZarliAdapterAdMob' library
+  # - Benefits: Faster builds, future-proof (CocoaPods sunset Dec 2026)
+  #
+  # For Flutter < 3.24: This CocoaPods dependency will be used automatically
+  s.dependency 'ZarliAdapterAdMob', '~> 1.3'
   s.platform = :ios, '13.0'
   s.static_framework = true
 
