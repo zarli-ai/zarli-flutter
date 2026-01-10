@@ -1,3 +1,7 @@
+## 0.0.5
+
+* Consolidated versioning and confirmed `-ObjC` linker flag activation.
+
 ## 0.0.4
 
 * Added `-ObjC` linker flag to ensure mediation adapters are correctly linked in all project types.
