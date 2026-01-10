@@ -1,3 +1,7 @@
+## 0.0.3
+
+* Improved automated linker reference to ensure AdMob adapter is always included.
+
 ## 0.0.2
 
 * Added Swift Package Manager (SPM) support for Flutter 3.24+.
