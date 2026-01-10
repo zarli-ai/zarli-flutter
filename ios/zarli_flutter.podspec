@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zarli_flutter'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'A Flutter plugin for the Zarli iOS SDK.'
   s.description      = <<-DESC
 A Flutter plugin for the Zarli iOS SDK.

@@ -1,6 +1,7 @@
 import Flutter
 import UIKit
 import ZarliSDKSwift
+import ZarliAdapterAdMob
 
 public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
     
@@ -14,6 +15,10 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
     }
     
     public static func register(with registrar: FlutterPluginRegistrar) {
+        // Force reference to ensure the AdMob mediation adapter is not stripped by the linker.
+        // This removes the need for developers to manually reference it in AppDelegate.
+        _ = ZarliAdMobMediationAdapter.self
+        
         let channel = FlutterMethodChannel(name: "zarli_flutter", binaryMessenger: registrar.messenger())
         let instance = SwiftZarliFlutterPlugin(channel: channel)
         registrar.addMethodCallDelegate(instance, channel: channel)
