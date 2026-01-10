@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Added `-ObjC` linker flag to ensure mediation adapters are correctly linked in all project types.
+
 ## 0.0.3
 
 * Improved automated linker reference to ensure AdMob adapter is always included.
