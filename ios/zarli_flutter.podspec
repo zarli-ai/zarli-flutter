@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'zarli_flutter'
-  s.version          = '0.0.5'
+  s.version          = '0.0.6'
   s.summary          = 'A Flutter plugin for the Zarli iOS SDK.'
   s.description      = <<-DESC
 A Flutter plugin for the Zarli iOS SDK.
@@ -25,7 +25,7 @@ A Flutter plugin for the Zarli iOS SDK.
   # - Benefits: Faster builds, future-proof (CocoaPods sunset Dec 2026)
   #
   # For Flutter < 3.24: This CocoaPods dependency will be used automatically
-  s.dependency 'ZarliAdapterAdMob', '~> 1.3'
+  s.dependency 'ZarliAdapterAdMob', '~> 2.0'
   s.platform = :ios, '13.0'
   s.static_framework = true
 
