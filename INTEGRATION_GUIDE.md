@@ -286,6 +286,6 @@ Before releasing to production:
 
 ## Support
 
-- **Zarli Support**: support@zarli.ai
+- **Zarli Support**: founders@zarli.ai
 - **Documentation**: [zarli-flutter README](https://pub.dev/packages/zarli_flutter)
 - **AdMob Mediation**: [Google AdMob Docs](https://developers.google.com/admob/ios/mediation)

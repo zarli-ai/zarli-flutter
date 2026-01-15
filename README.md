@@ -21,7 +21,7 @@ Add `zarli_flutter` to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  zarli_flutter: ^0.0.1
+  zarli_flutter: ^0.0.5
 ```
 
 ### 2. Configure iOS
