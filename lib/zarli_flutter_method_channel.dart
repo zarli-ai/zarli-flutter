@@ -152,14 +152,12 @@ class MethodChannelZarliFlutter extends ZarliFlutterPlatform {
   Future<void> setContext({
     String? userEmail,
     String? currentSeriesName,
-    String? currentEpisodeName,
     int? currentEpisodeNumber,
     String? contentUrl,
   }) async {
     await methodChannel.invokeMethod<void>('setContext', {
       'userEmail': userEmail,
       'currentSeriesName': currentSeriesName,
-      'currentEpisodeName': currentEpisodeName,
       'currentEpisodeNumber': currentEpisodeNumber,
       'contentUrl': contentUrl,
     });

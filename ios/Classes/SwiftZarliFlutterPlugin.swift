@@ -73,20 +73,18 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
     
     private func handleSetContext(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         guard let args = call.arguments as? [String: Any] else {
-            result(nil)
+            result(FlutterError(code: "INVALID_ARGUMENTS", message: "Arguments must be a map", details: nil))
             return
         }
         
         let userEmail = args["userEmail"] as? String
         let currentSeriesName = args["currentSeriesName"] as? String
-        let currentEpisodeName = args["currentEpisodeName"] as? String
         let currentEpisodeNumber = args["currentEpisodeNumber"] as? Int
-        let contentUrl = args["contentUrl"] as? String // New parameter
+        let contentUrl = args["contentUrl"] as? String
         
         ZarliSDK.shared.setContext(
             userEmail: userEmail,
             currentSeriesName: currentSeriesName,
-            currentEpisodeName: currentEpisodeName,
             currentEpisodeNumber: currentEpisodeNumber,
             contentUrl: contentUrl
         )

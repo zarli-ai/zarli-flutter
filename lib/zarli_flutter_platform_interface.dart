@@ -54,7 +54,6 @@ abstract class ZarliFlutterPlatform extends PlatformInterface {
   Future<void> setContext({
     String? userEmail,
     String? currentSeriesName,
-    String? currentEpisodeName,
     int? currentEpisodeNumber,
     String? contentUrl,
   }) {

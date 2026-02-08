@@ -22,20 +22,17 @@ class ZarliFlutter {
   ///
   /// [userEmail] - The user's email address.
   /// [currentSeriesName] - The name of the series being watched.
-  /// [currentEpisodeName] - The name of the episode being watched.
   /// [currentEpisodeNumber] - The number of the episode being watched.
   /// [contentUrl] - The URL of the content being consumed.
   static Future<void> setContext({
     String? userEmail,
     String? currentSeriesName,
-    String? currentEpisodeName,
     int? currentEpisodeNumber,
     String? contentUrl,
   }) {
     return ZarliFlutterPlatform.instance.setContext(
       userEmail: userEmail,
       currentSeriesName: currentSeriesName,
-      currentEpisodeName: currentEpisodeName,
       currentEpisodeNumber: currentEpisodeNumber,
       contentUrl: contentUrl,
     );
