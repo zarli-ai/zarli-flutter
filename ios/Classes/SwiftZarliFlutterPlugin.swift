@@ -38,6 +38,8 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
             handleShowRewardedAd(call, result: result)
         case "disposeAd":
             handleDisposeAd(call, result: result)
+        case "setContext":
+            handleSetContext(call, result: result)
         default:
             result(FlutterMethodNotImplemented)
         }
@@ -67,6 +69,29 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
             // We can return success even if SDK was already initialized
             result(nil)
         }
+    }
+    
+    private func handleSetContext(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        guard let args = call.arguments as? [String: Any] else {
+            result(nil)
+            return
+        }
+        
+        let userEmail = args["userEmail"] as? String
+        let currentSeriesName = args["currentSeriesName"] as? String
+        let currentEpisodeName = args["currentEpisodeName"] as? String
+        let currentEpisodeNumber = args["currentEpisodeNumber"] as? Int
+        let contentUrl = args["contentUrl"] as? String // New parameter
+        
+        ZarliSDK.shared.setContext(
+            userEmail: userEmail,
+            currentSeriesName: currentSeriesName,
+            currentEpisodeName: currentEpisodeName,
+            currentEpisodeNumber: currentEpisodeNumber,
+            contentUrl: contentUrl
+        )
+        
+        result(nil)
     }
     
     // MARK: - Generic Helpers

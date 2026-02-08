@@ -17,6 +17,29 @@ class ZarliFlutter {
   static Future<void> initialize({String? apiKey}) {
     return ZarliFlutterPlatform.instance.initialize(apiKey: apiKey);
   }
+
+  /// Sets the user and content context for better ad targeting.
+  ///
+  /// [userEmail] - The user's email address.
+  /// [currentSeriesName] - The name of the series being watched.
+  /// [currentEpisodeName] - The name of the episode being watched.
+  /// [currentEpisodeNumber] - The number of the episode being watched.
+  /// [contentUrl] - The URL of the content being consumed.
+  static Future<void> setContext({
+    String? userEmail,
+    String? currentSeriesName,
+    String? currentEpisodeName,
+    int? currentEpisodeNumber,
+    String? contentUrl,
+  }) {
+    return ZarliFlutterPlatform.instance.setContext(
+      userEmail: userEmail,
+      currentSeriesName: currentSeriesName,
+      currentEpisodeName: currentEpisodeName,
+      currentEpisodeNumber: currentEpisodeNumber,
+      contentUrl: contentUrl,
+    );
+  }
 }
 
 /// Abstract base class for Zarli Ads.

@@ -50,6 +50,17 @@ abstract class ZarliFlutterPlatform extends PlatformInterface {
     throw UnimplementedError('showRewardedAd() has not been implemented.');
   }
 
+  /// Sets the user and content context.
+  Future<void> setContext({
+    String? userEmail,
+    String? currentSeriesName,
+    String? currentEpisodeName,
+    int? currentEpisodeNumber,
+    String? contentUrl,
+  }) {
+    throw UnimplementedError('setContext() has not been implemented.');
+  }
+
   /// Disposes an ad object.
   Future<void> disposeAd(String adObjectId) {
     throw UnimplementedError('disposeAd() has not been implemented.');
