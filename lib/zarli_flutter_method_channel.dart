@@ -111,12 +111,11 @@ class MethodChannelZarliFlutter extends ZarliFlutterPlatform {
   Stream<ZarliAdEvent> get adEvents => _eventStreamController.stream;
 
   @override
-  Future<void> initialize({String? apiKey, bool useLocalServer = false}) async {
+  Future<void> initialize({String? apiKey}) async {
     final Map<String, dynamic> args = {};
     if (apiKey != null) {
       args['apiKey'] = apiKey;
     }
-    args['useLocalServer'] = useLocalServer;
     await methodChannel.invokeMethod<void>('initialize', args);
   }
 

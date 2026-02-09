@@ -26,8 +26,7 @@ abstract class ZarliFlutterPlatform extends PlatformInterface {
   ///
   /// [apiKey] is optional. If not provided, the plugin searches for `ZarliAPIKey`
   /// in the Info.plist (iOS) or AndroidManifest.xml (Android).
-  /// [useLocalServer] - If true, points the SDK to local bidding server (debug builds only).
-  Future<void> initialize({String? apiKey, bool useLocalServer = false}) {
+  Future<void> initialize({String? apiKey}) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 

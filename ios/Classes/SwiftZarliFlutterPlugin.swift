@@ -47,11 +47,9 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
     
     private func handleInitialize(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         var apiKey: String?
-        var useLocalServer = false
         
         if let args = call.arguments as? [String: Any] {
             apiKey = args["apiKey"] as? String
-            useLocalServer = args["useLocalServer"] as? Bool ?? false
         }
         
         // Fallback to Info.plist
@@ -64,8 +62,7 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
             return
         }
         
-        
-        let config = ZarliConfiguration(apiKey: finalApiKey, useLocalServer: useLocalServer)
+        let config = ZarliConfiguration(apiKey: finalApiKey)
         ZarliSDK.shared.initialize(configuration: config) { success in
             // We can return success even if SDK was already initialized
             result(nil)
