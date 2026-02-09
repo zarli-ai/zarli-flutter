@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
 
 import 'zarli_flutter_platform_interface.dart';
 
@@ -16,6 +18,42 @@ class ZarliFlutter {
   /// 'ZarliAPIKey' from Info.plist (iOS) or AndroidManifest.xml (Android).
   static Future<void> initialize({String? apiKey}) {
     return ZarliFlutterPlatform.instance.initialize(apiKey: apiKey);
+  }
+
+  /// Sets the user and content context for better ad targeting.
+  ///
+  /// Sets the user and content context for better ad targeting.
+  ///
+  /// [hashedEmail] - The user's email address, hashed using SHA-256.
+  /// Use [ZarliFlutter.hashEmail] to generate this hash from a raw email.
+  /// [currentSeriesName] - The name of the series being watched.
+  /// [currentEpisodeNumber] - The number of the episode being watched.
+  /// [contentUrl] - Content URL
+  static Future<void> setContext({
+    String? hashedEmail,
+    String? currentSeriesName,
+    int? currentEpisodeNumber,
+    String? contentUrl,
+  }) {
+    return ZarliFlutterPlatform.instance.setContext(
+      hashedEmail: hashedEmail,
+      currentSeriesName: currentSeriesName,
+      currentEpisodeNumber: currentEpisodeNumber,
+      contentUrl: contentUrl,
+    );
+  }
+
+  /// Hashes an email address using SHA-256 for privacy compliance.
+  ///
+  /// Use this before passing an email to [setContext].
+  static String hashEmail(String email) {
+    // 1. Trim whitespace
+    // 2. Convert to lowercase
+    // 3. Compute SHA-256 hash
+    final cleanEmail = email.trim().toLowerCase();
+    final bytes = utf8.encode(cleanEmail);
+    final digest = sha256.convert(bytes);
+    return digest.toString();
   }
 }
 

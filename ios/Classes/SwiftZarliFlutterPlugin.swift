@@ -38,6 +38,8 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
             handleShowRewardedAd(call, result: result)
         case "disposeAd":
             handleDisposeAd(call, result: result)
+        case "setContext":
+            handleSetContext(call, result: result)
         default:
             result(FlutterMethodNotImplemented)
         }
@@ -60,13 +62,33 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
             return
         }
         
-        
-        // TEMPORARY: Use local server for testing
         let config = ZarliConfiguration(apiKey: finalApiKey)
         ZarliSDK.shared.initialize(configuration: config) { success in
             // We can return success even if SDK was already initialized
             result(nil)
         }
+    }
+    
+    private func handleSetContext(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        guard let args = call.arguments as? [String: Any] else {
+            result(FlutterError(code: "INVALID_ARGUMENTS", message: "Arguments must be a map", details: nil))
+            return
+        }
+        
+        // Support both keys for backward compatibility, prioritize hashedEmail
+        let hashedEmail = args["hashedEmail"] as? String
+        let currentSeriesName = args["currentSeriesName"] as? String
+        let currentEpisodeNumber = args["currentEpisodeNumber"] as? Int
+        let contentUrl = args["contentUrl"] as? String
+        
+        ZarliSDK.shared.setContext(
+            userEmail: hashedEmail,
+            currentSeriesName: currentSeriesName,
+            currentEpisodeNumber: currentEpisodeNumber,
+            contentUrl: contentUrl
+        )
+        
+        result(nil)
     }
     
     // MARK: - Generic Helpers

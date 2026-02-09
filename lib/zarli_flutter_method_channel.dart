@@ -143,8 +143,24 @@ class MethodChannelZarliFlutter extends ZarliFlutterPlatform {
 
   @override
   Future<void> showRewardedAd(String adObjectId) async {
-    await methodChannel
-        .invokeMethod<void>('showRewardedAd', {'adObjectId': adObjectId});
+    await methodChannel.invokeMethod<void>('showRewardedAd', {
+      'adObjectId': adObjectId,
+    });
+  }
+
+  @override
+  Future<void> setContext({
+    String? hashedEmail,
+    String? currentSeriesName,
+    int? currentEpisodeNumber,
+    String? contentUrl,
+  }) async {
+    await methodChannel.invokeMethod<void>('setContext', {
+      'hashedEmail': hashedEmail, // New key for clarity
+      'currentSeriesName': currentSeriesName,
+      'currentEpisodeNumber': currentEpisodeNumber,
+      'contentUrl': contentUrl,
+    });
   }
 
   @override
