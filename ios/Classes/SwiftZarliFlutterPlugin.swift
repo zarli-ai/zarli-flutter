@@ -78,7 +78,7 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
         }
         
         // Support both keys for backward compatibility, prioritize hashedEmail
-        let hashedEmail = args["hashedEmail"] as? String ?? args["userEmail"] as? String
+        let hashedEmail = args["hashedEmail"] as? String
         let currentSeriesName = args["currentSeriesName"] as? String
         let currentEpisodeNumber = args["currentEpisodeNumber"] as? Int
         let contentUrl = args["contentUrl"] as? String
