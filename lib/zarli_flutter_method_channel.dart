@@ -156,7 +156,6 @@ class MethodChannelZarliFlutter extends ZarliFlutterPlatform {
     String? contentUrl,
   }) async {
     await methodChannel.invokeMethod<void>('setContext', {
-      'userEmail': hashedEmail, // Legacy key for native compatibility
       'hashedEmail': hashedEmail, // New key for clarity
       'currentSeriesName': currentSeriesName,
       'currentEpisodeNumber': currentEpisodeNumber,
