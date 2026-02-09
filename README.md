@@ -66,7 +66,20 @@ void main() async {
 }
 ```
 
-### 2. Interstitial Ads
+### 2. Set User & Content Context (Recommended)
+
+To improve ad targeting and revenue, set the user and content context before loading ads. This is preferred over passing data via AdMob extras.
+
+```dart
+await ZarliFlutter.setContext(
+  contentUrl: "https://zarli.ai/content/123", // URL of the content being viewed
+  userEmail: "user@example.com", // Optional: Hashed email for identity
+  currentSeriesName: "My Series", // Optional
+  currentEpisodeNumber: 1 // Optional
+);
+```
+
+### 3. Interstitial Ads
 
 ```dart
 import 'package:zarli_flutter/zarli_flutter.dart';
@@ -117,7 +130,7 @@ class _MyScreenState extends State<MyScreen> {
 }
 ```
 
-### 3. Rewarded Ads
+### 4. Rewarded Ads
 
 ```dart
 final ad = ZarliRewardedAd(adUnitId: "YOUR_REWARDED_AD_UNIT_ID");
