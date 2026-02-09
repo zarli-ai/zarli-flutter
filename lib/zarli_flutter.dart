@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:math';
+import 'dart:convert';
+import 'package:crypto/crypto.dart';
 
 import 'zarli_flutter_platform_interface.dart';
 
@@ -20,7 +22,8 @@ class ZarliFlutter {
 
   /// Sets the user and content context for better ad targeting.
   ///
-  /// [userEmail] - The user's email address.
+  /// [userEmail] - The user's email address. It is STRONGLY RECOMMENDED to hash this
+  /// using [ZarliFlutter.hashEmail] before passing it for privacy compliance.
   /// [currentSeriesName] - The name of the series being watched.
   /// [currentEpisodeNumber] - The number of the episode being watched.
   /// [contentUrl] - The URL of the content being consumed.
@@ -36,6 +39,19 @@ class ZarliFlutter {
       currentEpisodeNumber: currentEpisodeNumber,
       contentUrl: contentUrl,
     );
+  }
+
+  /// Hashes an email address using SHA-256 for privacy compliance.
+  ///
+  /// Use this before passing an email to [setContext].
+  static String hashEmail(String email) {
+    // 1. Trim whitespace
+    // 2. Convert to lowercase
+    // 3. Compute SHA-256 hash
+    final cleanEmail = email.trim().toLowerCase();
+    final bytes = utf8.encode(cleanEmail);
+    final digest = sha256.convert(bytes);
+    return digest.toString();
   }
 }
 
