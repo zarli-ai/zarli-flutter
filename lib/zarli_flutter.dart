@@ -16,7 +16,7 @@ class ZarliFlutter {
   ///
   /// [apiKey] is optional. If not provided, the plugin attempts to read
   /// 'ZarliAPIKey' from Info.plist (iOS) or AndroidManifest.xml (Android).
-  /// [useLocalServer] - If true, points the SDK to local bidding server (debug builds only).
+  /// [useLocalServer] - If true, points the SDK to local bidding server (typically for development).
   static Future<void> initialize(
       {String? apiKey, bool useLocalServer = false}) {
     return ZarliFlutterPlatform.instance
