@@ -82,7 +82,7 @@ public class SwiftZarliFlutterPlugin: NSObject, FlutterPlugin {
         let contentUrl = args["contentUrl"] as? String
         
         ZarliSDK.shared.setContext(
-            userEmail: hashedEmail,
+            hashedEmail: hashedEmail,
             currentSeriesName: currentSeriesName,
             currentEpisodeNumber: currentEpisodeNumber,
             contentUrl: contentUrl

@@ -1,3 +1,8 @@
+## 0.0.6
+
+* Cleaned up `setContext` logging and extra request parameters.
+* Improved context passing for better ad relevance.
+
 ## 0.0.5
 
 * Consolidated versioning and confirmed `-ObjC` linker flag activation.
