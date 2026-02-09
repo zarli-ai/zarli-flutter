@@ -73,7 +73,7 @@ To improve ad targeting and revenue, set the user and content context before loa
 ```dart
 await ZarliFlutter.setContext(
   contentUrl: "https://zarli.ai/content/123", // URL of the content being viewed
-  userEmail: ZarliFlutter.hashEmail("user@example.com"), // Hash email for privacy
+  hashedEmail: ZarliFlutter.hashEmail("user@example.com"), // Hash email for privacy
   currentSeriesName: "My Series", // Optional
   currentEpisodeNumber: 1 // Optional
 );

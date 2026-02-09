@@ -22,19 +22,21 @@ class ZarliFlutter {
 
   /// Sets the user and content context for better ad targeting.
   ///
-  /// [userEmail] - The user's email address. It is STRONGLY RECOMMENDED to hash this
-  /// using [ZarliFlutter.hashEmail] before passing it for privacy compliance.
+  /// Sets the user and content context for better ad targeting.
+  ///
+  /// [hashedEmail] - The user's email address, hashed using SHA-256.
+  /// Use [ZarliFlutter.hashEmail] to generate this hash from a raw email.
   /// [currentSeriesName] - The name of the series being watched.
   /// [currentEpisodeNumber] - The number of the episode being watched.
   /// [contentUrl] - The URL of the content being consumed.
   static Future<void> setContext({
-    String? userEmail,
+    String? hashedEmail,
     String? currentSeriesName,
     int? currentEpisodeNumber,
     String? contentUrl,
   }) {
     return ZarliFlutterPlatform.instance.setContext(
-      userEmail: userEmail,
+      hashedEmail: hashedEmail,
       currentSeriesName: currentSeriesName,
       currentEpisodeNumber: currentEpisodeNumber,
       contentUrl: contentUrl,

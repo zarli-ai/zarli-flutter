@@ -150,13 +150,14 @@ class MethodChannelZarliFlutter extends ZarliFlutterPlatform {
 
   @override
   Future<void> setContext({
-    String? userEmail,
+    String? hashedEmail,
     String? currentSeriesName,
     int? currentEpisodeNumber,
     String? contentUrl,
   }) async {
     await methodChannel.invokeMethod<void>('setContext', {
-      'userEmail': userEmail,
+      'userEmail': hashedEmail, // Legacy key for native compatibility
+      'hashedEmail': hashedEmail, // New key for clarity
       'currentSeriesName': currentSeriesName,
       'currentEpisodeNumber': currentEpisodeNumber,
       'contentUrl': contentUrl,
