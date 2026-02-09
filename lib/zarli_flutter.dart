@@ -28,7 +28,7 @@ class ZarliFlutter {
   /// Use [ZarliFlutter.hashEmail] to generate this hash from a raw email.
   /// [currentSeriesName] - The name of the series being watched.
   /// [currentEpisodeNumber] - The number of the episode being watched.
-  /// [contentUrl] - The URL of the content being consumed.
+  /// [contentUrl] - Content URL
   static Future<void> setContext({
     String? hashedEmail,
     String? currentSeriesName,
