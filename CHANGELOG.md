@@ -1,3 +1,7 @@
+## 0.0.7
+
+* Updated iOS SDK dependency to `>= 1.3.63` to ensure customers receive the latest bug fixes and improvements.
+
 ## 0.0.6
 
 * Cleaned up `setContext` logging and extra request parameters.
